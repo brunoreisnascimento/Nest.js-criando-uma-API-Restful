@@ -6,12 +6,17 @@ import {
   IsNumber,
   IsString,
   IsUrl,
+  IsUUID,
   MaxLength,
   Min,
   ValidateNested,
 } from 'class-validator';
 
 export class CaracteristicaProdutoDTO {
+
+  @IsUUID(undefined, { message: 'ID de usuário inválido' })
+  usuarioId: string;
+
   @IsString()
   @IsNotEmpty({ message: 'Nome da cadasterística não pode ser vazio' })
   nome: string;
